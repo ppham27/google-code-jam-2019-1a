@@ -22,11 +22,11 @@ func findSequence(N: Int, M: Int) -> [(row: Int, column: Int)]? {
             return last.row != ri && last.column != ci &&
               last.row + last.column != ri + ci &&
               last.row - last.column != ri - ci
-        }.reduce((i: nil, count: nil)) {
-            (state: (i: Int?, count: Int?), value) -> (i: Int?, count: Int?) in
-            if let count = state.count, count > value.element.count { return state }
+        }.reduce(nil) {
+            (state: (i: Int, count: Int)?, value) -> (i: Int, count: Int)? in
+            if let count = state?.count, count > value.element.count { return state }
             return (i: value.offset, count: value.element.count)
-        }.i) else { return nil }
+        }?.i) else { return nil }
         sequence.append((row: i / M, column: i % M))
         visited.insert(i)
         for j in badNeighbors[i] { badNeighbors[j].remove(i) }
