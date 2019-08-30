@@ -17,11 +17,9 @@ func findSequence(N: Int, M: Int) -> [(row: Int, column: Int)]? {
     while sequence.count < N * M {
         guard let i = (badNeighbors.enumerated().filter {
             if visited.contains($0.offset) { return false }
-            guard let last = sequence.last else { return true }
+            guard let (rj, cj) = sequence.last else { return true }
             let (ri, ci) = ($0.offset / M, $0.offset % M)
-            return last.row != ri && last.column != ci &&
-              last.row + last.column != ri + ci &&
-              last.row - last.column != ri - ci
+            return rj != ri && cj != ci && rj + cj != ri + ci && rj - cj != ri - ci
         }.reduce(nil) {
             (state: (i: Int, count: Int)?, value) -> (i: Int, count: Int)? in
             if let count = state?.count, count > value.element.count { return state }
