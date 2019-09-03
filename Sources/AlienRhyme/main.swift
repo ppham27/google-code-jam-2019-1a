@@ -141,7 +141,7 @@ func maximizeTreePairs<T: Collection>(
           return (state.used + childState.used, state.unused + childState.unused)
       })
     let shortPairUsed = min(2 * (depth - minPairWordCount), (unused / 2) * 2)
-    return (used + shortPairUsed, unused - shortPairUsed)    
+    return (used + shortPairUsed, unused - shortPairUsed)
 }
 
 func maximizePairs(_ words: [String]) -> Int {
