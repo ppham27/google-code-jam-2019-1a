@@ -16,7 +16,7 @@ swift run Pylons < data/Pylons.in
 $N = 365$ and $M = 100$ in this test set.
 
 ```
-python interactive_runner.py python testing_tool.py 0 -- swift run GolfGophers
+python interactive_runner.py python data/GolfGophers.py 0 -- swift run GolfGophers
 ```
 
 ### Hard Test Set
@@ -24,7 +24,7 @@ python interactive_runner.py python testing_tool.py 0 -- swift run GolfGophers
 $N = 7$ and $M = 10^6$ in this test set.
 
 ```
-python interactive_runner.py python testing_tool.py 1 -- swift run GolfGophers
+python interactive_runner.py python data/GolfGophers.py 1 -- swift run GolfGophers
 ```
 
 
